@@ -1,13 +1,21 @@
-import ProductCards from "./ProductCards";
+import { useEffect, useState } from "react";
+import ProductsList from "./ProductsList";
 
 const MainPage = () => {
+    const [products, setProducts] = useState(null);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/products')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data);
+                setProducts(data);
+            })
+    }, []);
     return (
-        <div className="ui four stackable container cards">
-            <ProductCards />
-            <ProductCards />
-            <ProductCards />
-            <ProductCards />
-        </div>
+            products && <ProductsList products={products}/>
     );
 };
 

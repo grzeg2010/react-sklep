@@ -1,15 +1,21 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage({ user, Login }) {
     const [details, setDetails] = useState({name: "", password: ""});
+    let navigate = useNavigate();
 
     const submitHandler = e => {
         e.preventDefault();
 
-        Login(details);
-        console.log(user.name);
+        Login(details);        
     }
+
+    useEffect(() => {
+        if (user.name !== "") { 
+            navigate("/");
+        }
+    }, [user]);
 
     return(
         <div className="ui container grid two columns">
