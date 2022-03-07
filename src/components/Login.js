@@ -1,16 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function LoginPage({ user, Login }) {
+function LoginPage({ user, userList, setUser }) {
     const [details, setDetails] = useState({name: "", password: ""});
     let navigate = useNavigate();
+
+    const Login = details => {
+        console.log(details);
+
+        const selectedUser = (userList.find(user => user.name === details.name));
+
+        if (details.name === selectedUser.name && details.password === selectedUser.password) {
+            console.log("Zalogowano");
+            setUser({
+                name: selectedUser.name,
+                id: selectedUser.id,
+                basket: selectedUser.basket
+            })
+        } else {
+            console.log("Błąd");
+        }
+    }
 
     const submitHandler = e => {
         e.preventDefault();
 
-        Login(details);        
+        Login(details);       
     }
 
+    /* Przenosi użytkownika na stronę główną po zalogowaniu */
     useEffect(() => {
         if (user.name !== "") { 
             navigate("/");

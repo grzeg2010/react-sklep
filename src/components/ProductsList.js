@@ -10,27 +10,44 @@ const ButtonAddToBasket = () =>
     </div>;
 
 const ProductsList = ({ user, products }) => {
+    const handleBasket = (e) => {
+        e.preventDefault();
+
+        const target = e.currentTarget.parentElement.id;
+        const basketCount = user.basket.length;
+
+        user.basket[basketCount] = target;
+
+        console.log(user);
+
+        fetch('http://localhost:8000/db', {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(user)
+        }) 
+    }
+
     return(
         <div className="ui four stackable container cards">
             {products.map((product) => (
-                <div className="ui card">
+                <div className="ui card" id={product.id} key={product.id}>
                     <div className="center aligned">
-                        <i class={`${product.icon} huge icon`}></i>
+                        <i className={`${product.icon} huge icon`}></i>
                     </div>
 
                     <div className="center aligned">
-                        <h2>{product.name}</h2>
+                        <h2 className="ui header">{product.name}</h2>
                     </div>
 
                     {/* Jeśli użytkownik nie jest zalogowany, 
                     przycisk dodawania do koszyka przenosi 
                     do ekranu logowania */}
-                    {(user === "") ? (
-                        <Link to="/login" className="ui bottom attached button">
+                    {(user.name === "") ? (
+                        <Link to="/login" className="ui bottom attached button" title="Zaloguj się, aby móc dodać produkt do koszyka">
                             <ButtonAddToBasket />
                         </Link>
                     ) : (
-                        <button className="ui bottom attached button">
+                        <button className="ui bottom attached button" onClick={handleBasket}>
                             <ButtonAddToBasket />
                         </button>
                     )}

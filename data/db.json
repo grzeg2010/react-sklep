@@ -4,25 +4,40 @@
             "name": "Gra",
             "price": "149.99",
             "icon": "gamepad",
-            "id": 1
+            "id": 11
         },
         {
             "name": "Słuchawki",
             "price": "99.99",
             "icon": "headphones",
-            "id": 2
+            "id": 12
         },
         {
             "name": "Telefon",
             "price": "209.49",
             "icon": "phone",
-            "id": 3
+            "id": 13
         },
         {
             "name": "Długopis",
             "price": "5.29",
             "icon": "pencil",
-            "id": 4
+            "id": 14
+        }
+    ],
+
+    "users": [
+        {
+            "name": "admin",
+            "password": "admin123",
+            "basket": ["11", "12"],
+            "id": 21
+        },
+        {
+            "name": "test",
+            "password": "test123",
+            "basket": [],
+            "id": 22
         }
     ]
 }

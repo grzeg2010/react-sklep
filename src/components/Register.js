@@ -1,10 +1,7 @@
 const Register = () => {
     return (
         <div className="ui four main container">
-            <button className="ui button">One</button>
-            <button className="ui button">One</button>
-            <button className="ui button">One</button>
-            <button className="ui button">One</button>
+            <h1>Utwórz nowe konto</h1>
         </div>
     );
 };

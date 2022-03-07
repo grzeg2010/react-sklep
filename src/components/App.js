@@ -9,29 +9,23 @@ import Register from "./Register";
 import Basket from "./Basket";
 
 function App() {
-    const adminUser = {
-        name: "admin",
-        password: "admin123",
-    }
+    const [userList, setUserList] = useState(null);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/db')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                setUserList(data.users);
+            })
+    }, []);
 
     const [user, setUser] = useState(() => {
         const localData = localStorage.getItem('user');
         return localData ? JSON.parse(localData) : {name: ""};
     });
     const [error, setError] = useState("");
-
-    const Login = details => {
-        console.log(details);
-
-        if (details.name === adminUser.name && details.password === adminUser.password) {
-            console.log("Zalogowano");
-            setUser({
-                name: details.name,
-            })
-        } else {
-            console.log("Błąd");
-        }
-    }
 
     const Logout = () => {
         console.log("Logout");
@@ -47,10 +41,20 @@ function App() {
             <Header user={user} />
             <Routes>
                 {/* Strona główna */}
-                <Route path="/" element={<MainPage />} />
+                <Route path="/" element={<MainPage user={user}/>} />
 
                 {/* Strona logowania */}
-                    <Route path="/login" element={<LoginPage Login={Login} error={error} user={user} />} />
+                    <Route 
+                        path="/login"
+                        element={
+                            <LoginPage 
+                                error={error} 
+                                user={user} 
+                                setUser={setUser} 
+                                userList={userList} 
+                            />
+                        }
+                    />
 
                 {/* Rejestracja */}
                 <Route path="/register" element={<Register />} />
