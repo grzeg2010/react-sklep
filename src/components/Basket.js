@@ -1,11 +1,8 @@
-const Basket = () => {
+import BasketList from "./BasketList";
+
+function Basket({ products, user }) {
     return (
-        <div className="ui four main container">
-            <button className="ui button">One</button>
-            <button className="ui button">One</button>
-            <button className="ui button">One</button>
-            <button className="ui button">One</button>
-        </div>
+        products && <BasketList products={products} user={user}/>
     );
 };
 

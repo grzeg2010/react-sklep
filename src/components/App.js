@@ -36,12 +36,25 @@ function App() {
         localStorage.setItem('user', JSON.stringify(user));
     }, [user]);
 
+    const [products, setProducts] = useState(null);
+
+    useEffect(() => {
+        fetch('http://localhost:8000/db')
+            .then(res => {
+                return res.json();
+            })
+            .then(data => {
+                console.log(data.products);
+                setProducts(data.products);
+            })
+    }, []);
+
     return (
         <Router>
             <Header user={user} />
             <Routes>
                 {/* Strona główna */}
-                <Route path="/" element={<MainPage user={user}/>} />
+                <Route path="/" element={<MainPage products={products} user={user}/>} />
 
                 {/* Strona logowania */}
                     <Route 
@@ -63,7 +76,7 @@ function App() {
                 <Route path="/account" element={<Account Logout={Logout} user={user} />} />
 
                 {/* Koszyk */}
-                <Route path="/basket" element={<Basket user={user} />} />
+                <Route path="/basket" element={<Basket products={products} user={user} />} />
             </Routes>
         </Router>
     );

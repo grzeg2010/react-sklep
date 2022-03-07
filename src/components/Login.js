@@ -16,7 +16,7 @@ function LoginPage({ user, userList, setUser }) {
                 name: selectedUser.name,
                 id: selectedUser.id,
                 basket: selectedUser.basket
-            })
+            });
         } else {
             console.log("Błąd");
         }
@@ -31,6 +31,7 @@ function LoginPage({ user, userList, setUser }) {
     /* Przenosi użytkownika na stronę główną po zalogowaniu */
     useEffect(() => {
         if (user.name !== "") { 
+            console.log(user);
             navigate("/");
         }
     }, [user]);
