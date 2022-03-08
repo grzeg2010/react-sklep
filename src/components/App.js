@@ -7,6 +7,7 @@ import LoginPage from "./Login";
 import Account from "./Account";
 import Register from "./Register";
 import Basket from "./Basket";
+import Footer from "./Footer";
 
 function App() {
     const [userList, setUserList] = useState(null);
@@ -78,6 +79,7 @@ function App() {
                 {/* Koszyk */}
                 <Route path="/basket" element={<Basket products={products} user={user} />} />
             </Routes>
+            <Footer />
         </Router>
     );
 }

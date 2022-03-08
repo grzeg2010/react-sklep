@@ -25,7 +25,7 @@ function LoginPage({ user, userList, setUser }) {
     const submitHandler = e => {
         e.preventDefault();
 
-        Login(details);       
+        Login(details);
     }
 
     /* Przenosi użytkownika na stronę główną po zalogowaniu */
