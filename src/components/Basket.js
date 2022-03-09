@@ -46,15 +46,15 @@ function Basket({ products, user, setUser }) {
             {(price !== 0 ) ? (
                 <div>
                     <p><b>Razem:</b> {price}</p>
-                    <p>Twoje kredyty: {user.credits}</p>
+                    <p>Twoje monety: {user.credits}</p>
                     {(creditsLeft >= 0) ? (
-                        <p>Twoje kredyty po zakupie: {creditsLeft}</p>
+                        <p>Twoje monety po zakupie: {creditsLeft}</p>
                     ) : (
-                        <p>Twoje kredyty po zakupie: 0</p>
+                        <p>Za mało monet</p>
                     )}
                 </div>
             ) : (
-                <p>Twoje kredyty: {user.credits}</p>
+                <p>Twoje monety: {user.credits}</p>
             )}
 
             {(price !== 0 && creditsLeft >= 0) ? (

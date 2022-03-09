@@ -13,6 +13,8 @@ function Account({ user, setUser }) {
     }, []);
 
     const changeCredits = (e) => {
+        e.preventDefault();
+
         setValue({credits: (e.target.value)});
         setUser({
             ...user,
@@ -39,10 +41,11 @@ function Account({ user, setUser }) {
         <div className="ui container">
             <h2>Konto</h2>
             <p>Witaj {user.name}</p>
-            <h3>Kredyty</h3>
-            <div className="ui input">
-                <input type="number" placeholder='0'  onChange={changeCredits} value={value.credits} />
-            </div>
+            <h3>Monety</h3>
+            <form className="ui input" onSubmit={changeCredits}>
+                <input type="number" placeholder='0' onChange={e => (setValue({credits: (e.target.value)}))} value={value.credits} />
+                <button className="ui button">Zapisz ilość</button>
+            </form>
 
             <div className="ui divider"></div>
 
