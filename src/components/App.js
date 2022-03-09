@@ -28,6 +28,7 @@ function App() {
         const localData = localStorage.getItem('user');
         return localData ? JSON.parse(localData) : {name: ""};
     });
+    
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(user));
     }, [user]);
@@ -70,7 +71,7 @@ function App() {
                 <Route path="/account" element={<Account user={user} setUser={setUser} />} />
 
                 {/* Koszyk */}
-                <Route path="/basket" element={<Basket products={products} user={user} />} />
+                <Route path="/basket" element={<Basket products={products} user={user} setUser={setUser} />} />
             </Routes>
             <Footer />
         </Router>

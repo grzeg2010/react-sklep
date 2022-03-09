@@ -16,7 +16,7 @@ function Header({ user }) {
                 {(user.name === "") ? (
                     <div className="right item">
                         <Link to="/login">
-                            <button className="ui button">Zaloguj się</button>
+                            <button className="blue ui button">Zaloguj się</button>
                         </Link>                  
                     </div>
                 ) : (

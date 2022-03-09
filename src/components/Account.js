@@ -14,7 +14,6 @@ function Account({ user, setUser }) {
 
     const changeCredits = (e) => {
         setValue({credits: (e.target.value)});
-        value.credits = parseInt(value.credits) + 1;
         setUser({
             ...user,
             credits: value.credits
