@@ -16,7 +16,7 @@ function LoginPage({ user, userList, setUser }) {
                 name: selectedUser.name,
                 id: selectedUser.id,
                 credits: selectedUser.credits,
-                basket: selectedUser.basket
+                basket: []
             });
         } else {
             console.log("Błąd");

@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const ButtonAddToBasket = () => 
@@ -18,13 +19,7 @@ const ProductsList = ({ user, products }) => {
 
         user.basket[basketCount] = target;
 
-        console.log(user);
-
-        fetch('http://localhost:8000/db', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(user)
-        }) 
+        localStorage.setItem('user', JSON.stringify(user));
     }
 
     return(

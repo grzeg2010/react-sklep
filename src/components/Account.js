@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Account({ user, setUser, Logout }) {
+function Account({ user, setUser }) {
     const [value, setValue] = useState({credits: ""});
     let navigate = useNavigate();
 
@@ -25,6 +25,11 @@ function Account({ user, setUser, Logout }) {
    useEffect(() => {
         localStorage.setItem('user', JSON.stringify(user)); 
     }, [user]);
+
+    const Logout = () => {
+        console.log("Logout");
+        setUser({name: ""});
+    }
 
     const logoutHandler = e => {
         Logout();

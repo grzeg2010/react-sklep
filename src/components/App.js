@@ -11,6 +11,8 @@ import Footer from "./Footer";
 
 function App() {
     const [userList, setUserList] = useState(null);
+    const [products, setProducts] = useState(null);
+    const [error, setError] = useState("");
 
     useEffect(() => {
         fetch('http://localhost:8000/db')
@@ -26,18 +28,9 @@ function App() {
         const localData = localStorage.getItem('user');
         return localData ? JSON.parse(localData) : {name: ""};
     });
-    const [error, setError] = useState("");
-
-    const Logout = () => {
-        console.log("Logout");
-        setUser({name: ""});
-    }
-
     useEffect(() => {
         localStorage.setItem('user', JSON.stringify(user));
     }, [user]);
-
-    const [products, setProducts] = useState(null);
 
     useEffect(() => {
         fetch('http://localhost:8000/db')
@@ -74,7 +67,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
 
                 {/* Panel użytkownika */}
-                <Route path="/account" element={<Account Logout={Logout} user={user} setUser={setUser} />} />
+                <Route path="/account" element={<Account user={user} setUser={setUser} />} />
 
                 {/* Koszyk */}
                 <Route path="/basket" element={<Basket products={products} user={user} />} />

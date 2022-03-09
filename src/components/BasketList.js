@@ -2,11 +2,13 @@ import React, { useState } from "react";
 
 const BasketList = ({ products, user }) => {
     const basket = user.basket;
+    let price = 0;
 
     let currentProduct = useState(null);
 
     function currentProductHandler(basketElement) {
         currentProduct = (products.find(product => product.id == basketElement));
+        price += parseInt(currentProduct.price);
         return(
             <div className="item">
                 <i className={`huge ${currentProduct.icon} icon left item`}></i>
@@ -21,8 +23,11 @@ const BasketList = ({ products, user }) => {
     return(
             <div className="ui container items">
             {basket.map((basketElement) => (     
-                currentProductHandler(basketElement)            
+                currentProductHandler(basketElement)
             ))}
+
+            <h4>Razem:</h4>
+            <p>{price}</p>
             </div>
     )
 }
