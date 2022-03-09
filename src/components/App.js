@@ -74,7 +74,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
 
                 {/* Panel użytkownika */}
-                <Route path="/account" element={<Account Logout={Logout} user={user} />} />
+                <Route path="/account" element={<Account Logout={Logout} user={user} setUser={setUser} />} />
 
                 {/* Koszyk */}
                 <Route path="/basket" element={<Basket products={products} user={user} />} />

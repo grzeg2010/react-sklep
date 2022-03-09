@@ -15,6 +15,7 @@ function LoginPage({ user, userList, setUser }) {
             setUser({
                 name: selectedUser.name,
                 id: selectedUser.id,
+                credits: selectedUser.credits,
                 basket: selectedUser.basket
             });
         } else {
