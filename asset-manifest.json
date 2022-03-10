@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/react-sklep/build/static/css/main.92d5ca87.css",
-    "main.js": "/react-sklep/build/static/js/main.aeb4165d.js",
-    "index.html": "/react-sklep/build/index.html",
-    "main.92d5ca87.css.map": "/react-sklep/build/static/css/main.92d5ca87.css.map",
-    "main.aeb4165d.js.map": "/react-sklep/build/static/js/main.aeb4165d.js.map"
+    "main.css": "/react-sklep/static/css/main.92d5ca87.css",
+    "main.js": "/react-sklep/static/js/main.aeb4165d.js",
+    "index.html": "/react-sklep/index.html",
+    "main.92d5ca87.css.map": "/react-sklep/static/css/main.92d5ca87.css.map",
+    "main.aeb4165d.js.map": "/react-sklep/static/js/main.aeb4165d.js.map"
   },
   "entrypoints": [
     "static/css/main.92d5ca87.css",
