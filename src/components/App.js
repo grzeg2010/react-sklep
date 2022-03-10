@@ -10,19 +10,33 @@ import Basket from "./Basket";
 import Footer from "./Footer";
 
 function App() {
-    const [userList, setUserList] = useState(null);
-    const [products, setProducts] = useState(null);
-    const [error, setError] = useState("");
-
-    useEffect(() => {
-        fetch('http://localhost:8000/db')
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                setUserList(data.users);
-            })
-    }, []);
+    const [userList, setUserList] = useState([]);
+    const [products, setProducts] = useState([
+        {
+            "name": "Gra",
+            "price": "15",
+            "icon": "gamepad",
+            "id": 11
+        },
+        {
+            "name": "Słuchawki",
+            "price": "9",
+            "icon": "headphones",
+            "id": 12
+        },
+        {
+            "name": "Telefon",
+            "price": "20",
+            "icon": "phone",
+            "id": 13
+        },
+        {
+            "name": "Ołówek",
+            "price": "5",
+            "icon": "pencil",
+            "id": 14
+        }
+    ]);
 
     const [user, setUser] = useState(() => {
         const localData = localStorage.getItem('user');
@@ -36,17 +50,6 @@ function App() {
     useEffect(() => {
         localStorage.setItem('userList', JSON.stringify(userList));
     }, [userList]);
-
-    useEffect(() => {
-        fetch('http://localhost:8000/db')
-            .then(res => {
-                return res.json();
-            })
-            .then(data => {
-                console.log(data.products);
-                setProducts(data.products);
-            })
-    }, []);
 
     return (
         <Router>
@@ -64,7 +67,7 @@ function App() {
                 <Route 
                     path="/login"
                     element={
-                        <LoginPage error={error} user={user} setUser={setUser} userList={userList} />
+                        <LoginPage user={user} setUser={setUser} userList={userList} />
                     }
                 />
 
