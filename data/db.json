@@ -29,13 +29,13 @@
     "users": [
         {
             "name": "admin",
-            "password": "admin123",
+            "password": "2",
             "credits": 10,
             "id": 21
         },
         {
             "name": "test",
-            "password": "test123",
+            "password": "1",
             "credits": 0,
             "id": 22
         }

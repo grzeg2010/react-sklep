@@ -34,6 +34,10 @@ function App() {
     }, [user]);
 
     useEffect(() => {
+        localStorage.setItem('userList', JSON.stringify(userList));
+    }, [userList]);
+
+    useEffect(() => {
         fetch('http://localhost:8000/db')
             .then(res => {
                 return res.json();
@@ -49,29 +53,44 @@ function App() {
             <Header user={user} />
             <Routes>
                 {/* Strona główna */}
-                <Route path="/" element={<MainPage products={products} user={user}/>} />
+                <Route 
+                    path="/" 
+                    element={
+                        <MainPage products={products} user={user}/>
+                    } 
+                />
 
                 {/* Strona logowania */}
-                    <Route 
-                        path="/login"
-                        element={
-                            <LoginPage 
-                                error={error} 
-                                user={user} 
-                                setUser={setUser} 
-                                userList={userList} 
-                            />
-                        }
-                    />
+                <Route 
+                    path="/login"
+                    element={
+                        <LoginPage error={error} user={user} setUser={setUser} userList={userList} />
+                    }
+                />
 
                 {/* Rejestracja */}
-                <Route path="/register" element={<Register />} />
+                <Route 
+                    path="/register" 
+                    element={
+                        <Register user={user}  setUserList={setUserList}  userList={userList} />
+                    } 
+                />
 
                 {/* Panel użytkownika */}
-                <Route path="/account" element={<Account user={user} setUser={setUser} />} />
+                <Route 
+                    path="/account" 
+                    element={
+                        <Account user={user} setUser={setUser} />
+                    }
+                />
 
                 {/* Koszyk */}
-                <Route path="/basket" element={<Basket products={products} user={user} setUser={setUser} />} />
+                <Route
+                    path="/basket"
+                    element={
+                        <Basket products={products} user={user} setUser={setUser} />
+                    }
+                />
             </Routes>
             <Footer />
         </Router>

@@ -44,7 +44,12 @@ function LoginPage({ user, userList, setUser }) {
             <input type="text" name="name" id="name" onChange={e => setDetails({...details, name: e.target.value})} value={details.name} />
 
             <label htmlFor="password">Hasło:</label>
-            <input type="password" name="password" id="password" onChange={e => setDetails({...details, password:e.target.value})} value={details.password} />
+            {/* <input type="password" name="password" id="password" onChange={e => setDetails({...details, password:e.target.value})} value={details.password} /> */}
+            <select name="password" value={e => e.target.value} onChange={e => setDetails({...details, password:e.target.value})}>
+                    <option value="1">bajka wioska cis</option>
+                    <option value="2">olej nurek gepard</option>   
+                    <option value="3">staw zjazd autko</option>   
+            </select>
 
             <input type="submit" value="Zaloguj się" className="ui button" />
         </form>
