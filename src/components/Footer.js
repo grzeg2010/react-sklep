@@ -7,6 +7,9 @@ const Footer = () => {
                 <a href="https://github.com/typsz/react-sklep">
                     <i className="big github icon"></i>
                 </a>
+                <a href="mailto:grzesniem@outlook.com">
+                    <i className="big mail icon"></i>    
+                </a>
             </div>
         </footer>
     )
