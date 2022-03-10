@@ -8,11 +8,9 @@ function Basket({ products, user, setUser }) {
 
     creditsLeft = user.credits - price;
 
-    console.log("W koszyku: " + user.basket.count);
-
     function RenderList() {
         return (
-            (user.basket.count !== 0 || user.basket.count !== undefined) ? (
+            (user.basket.length !== 0) ? (
                 products && <BasketList products={products} price={price} setPrice={setPrice} user={user} />
             ) : (
                 <div className="ui container">Koszyk jest pusty</div>

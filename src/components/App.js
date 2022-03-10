@@ -80,7 +80,7 @@ function App() {
                 <Route 
                     path="/account" 
                     element={
-                        <Account user={user} setUser={setUser} />
+                        <Account user={user} setUser={setUser} userList={userList} setUserList={setUserList} />
                     }
                 />
 

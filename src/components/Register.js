@@ -10,15 +10,15 @@ function Register({ user, userList, setUserList }) {
     function Register(details) {
         console.log(details);
 
-        console.log(userList.find(user => user.name === details.name));
+        let selectedUser = (userList.find(user => user.name === details.name));
 
-        if (details.name !== userList.find(user => user.name === details.name)) {
+        if (typeof selectedUser == "undefined") {
             setUserList([
                 ...userList,
                 {
                     name: details.name,
                     password: details.password,
-                    id: userList.count,
+                    id: parseInt(userList.count) + 21,
                     credits: 0,
                     basket: []
                 }
