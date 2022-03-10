@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import BasketList from "./BasketList";
 
 function Basket({ products, user, setUser }) {
@@ -48,7 +49,10 @@ function Basket({ products, user, setUser }) {
                     {(creditsLeft >= 0) ? (
                         <p>Twoje monety po zakupie: {creditsLeft}</p>
                     ) : (
-                        <p>Za mało monet</p>
+                        <p>Za mało monet<br />
+                            <Link to="/account">Dodaj monety</Link>
+                        </p>
+                        
                     )}
                 </div>
             ) : (
