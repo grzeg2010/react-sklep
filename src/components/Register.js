@@ -5,8 +5,6 @@ function Register({ user, userList, setUserList }) {
     const [details, setDetails] = useState({name: "", password: ""});
     let navigate = useNavigate();
 
-    console.log(userList.length);
-
     function Register(details) {
         console.log(details);
 
