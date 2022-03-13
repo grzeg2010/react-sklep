@@ -34,7 +34,7 @@ function Account({ user, setUser }) {
 
     const logoutHandler = e => {
         Logout();
-        navigate("/");
+        navigate("/react-sklep");
     }
 
     return(

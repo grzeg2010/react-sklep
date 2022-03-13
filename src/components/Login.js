@@ -33,7 +33,7 @@ function LoginPage({ user, userList, setUser }) {
     useEffect(() => {
         if (user.name !== "") { 
             console.log(user);
-            navigate("/");
+            navigate("/react-sklep");
         }
     }, [user]);
 

@@ -36,7 +36,7 @@ function Register({ user, userList, setUserList }) {
     useEffect(() => {
         if (user.name !== "") { 
             console.log(user);
-            navigate("/");
+            navigate("/react-sklep");
         }
     }, [user]);
 

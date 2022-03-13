@@ -57,7 +57,7 @@ function App() {
             <Routes>
                 {/* Strona główna */}
                 <Route 
-                    path="/" 
+                    path="/react-sklep" 
                     element={
                         <MainPage products={products} user={user}/>
                     } 

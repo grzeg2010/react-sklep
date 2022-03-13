@@ -6,7 +6,7 @@ function Header({ user }) {
     return (
         <div className="ui header">
             <div className="ui menu container">
-                <Link to="/">
+                <Link to="/react-sklep">
                     <div className="item">
                         
                         <h1><i className="react icon"></i>Sklep React</h1>
