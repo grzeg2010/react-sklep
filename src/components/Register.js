@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Register({ user, userList, setUserList }) {
-    const [details, setDetails] = useState({name: "", password: ""});
+    const [details, setDetails] = useState({name: "", password: "1"});
     let navigate = useNavigate();
 
     function Register(details) {
@@ -43,7 +43,7 @@ function Register({ user, userList, setUserList }) {
                 <input type="text" name="name" id="name" onChange={e => setDetails({ ...details, name: e.target.value })} value={details.name} />
                 
                 <label htmlFor="password">Hasło:</label>
-                <select name="password" value={e => e.target.value} onChange={e => setDetails({...details, password:e.target.value})}>
+                <select name="password" value={details.value} onChange={e => setDetails({...details, password:e.target.value})}>
                         <option value="1">bajka wioska cis</option>
                         <option value="2">olej nurek gepard</option>   
                         <option value="3">staw zjazd autko</option>   

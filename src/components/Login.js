@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage({ user, userList, setUser }) {
-    const [details, setDetails] = useState({name: "", password: ""});
+    const [details, setDetails] = useState({name: "", password: "1"});
     let navigate = useNavigate();
 
     const Login = details => {
@@ -45,7 +45,7 @@ function LoginPage({ user, userList, setUser }) {
 
             <label htmlFor="password">Hasło:</label>
             {/* <input type="password" name="password" id="password" onChange={e => setDetails({...details, password:e.target.value})} value={details.password} /> */}
-            <select name="password" value={e => e.target.value} onChange={e => setDetails({...details, password:e.target.value})}>
+            <select name="password" value={details.password} onChange={e => setDetails({...details, password:e.target.value})}>
                     <option value="1">bajka wioska cis</option>
                     <option value="2">olej nurek gepard</option>   
                     <option value="3">staw zjazd autko</option>   
