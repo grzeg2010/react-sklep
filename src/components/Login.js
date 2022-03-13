@@ -16,7 +16,7 @@ function LoginPage({ user, userList, setUser }) {
                 name: selectedUser.name,
                 id: selectedUser.id,
                 credits: selectedUser.credits,
-                basket: []
+                basket: selectedUser.basket
             });
         } else {
             console.log("Błąd");
@@ -51,7 +51,7 @@ function LoginPage({ user, userList, setUser }) {
                     <option value="3">staw zjazd autko</option>   
             </select>
 
-            <input type="submit" value="Zaloguj się" className="ui button" />
+            <input type="submit" value="Zaloguj się" className="ui button marginTop" />
         </form>
         <div className="ui column">
             <h3>Nie masz konta?</h3>

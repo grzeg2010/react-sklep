@@ -21,6 +21,8 @@ function Register({ user, userList, setUserList }) {
                     basket: []
                 }
             ]);
+
+            navigate("/login");
         } else {
             console.log("Ta nazwa użytkownika jest już zajęta");
         }
@@ -31,14 +33,6 @@ function Register({ user, userList, setUserList }) {
 
         Register(details);
     }
-
-    /* Przenosi użytkownika na stronę główną po zalogowaniu */
-    useEffect(() => {
-        if (user.name !== "") { 
-            console.log(user);
-            navigate("/react-sklep");
-        }
-    }, [user]);
 
     return (
         <div className="ui four main container">
@@ -55,7 +49,7 @@ function Register({ user, userList, setUserList }) {
                         <option value="3">staw zjazd autko</option>   
                 </select>
 
-                <input type="submit" value="Zarejestruj się" className="blue ui button" />
+                <input type="submit" value="Zarejestruj się" className="blue ui button marginTop" />
             </form>
         </div>
     );

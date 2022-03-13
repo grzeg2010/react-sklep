@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import BasketList from "./BasketList";
 
-function Basket({ products, user, setUser }) {
+function Basket({ products, user, setUser, userList, setUserList }) {
     const [price, setPrice] = useState(0);
 
     let creditsLeft = user.credits;
@@ -25,6 +25,14 @@ function Basket({ products, user, setUser }) {
             basket: [],
             credits: creditsLeft
         });
+
+        const updateUser = userList.map(target => {
+            if (target.name === user.name) {
+                return {...target, basket: [], credits: creditsLeft};
+            } else return target;
+        });
+
+        setUserList(updateUser);
 
         setPrice(0);
     }
@@ -60,9 +68,9 @@ function Basket({ products, user, setUser }) {
             )}
 
             {(price !== 0 && creditsLeft >= 0) ? (
-                <button className="blue ui button" onClick={BuyButton}>Zakup</button>
+                <button className="blue ui button marginTop" onClick={BuyButton}>Zakup</button>
             ) : (
-                <button disabled className="blue ui button">Zakup</button>
+                <button disabled className="blue ui button marginTop">Zakup</button>
             )}
         </div>
     )

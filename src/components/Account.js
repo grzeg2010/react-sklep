@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Account({ user, setUser }) {
-    const [value, setValue] = useState({credits: ""});
+function Account({ user, setUser, userList, setUserList }) {
+    const [value, setValue] = useState({credits: null});
     let navigate = useNavigate();
 
     useEffect(() => {
@@ -20,7 +20,14 @@ function Account({ user, setUser }) {
             ...user,
             credits: value.credits
         });
-        
+
+        const updateUser = userList.map(target => {
+            if (target.name === user.name) {
+                return {...target, credits: value.credits};
+            } else return target;
+        });
+
+        setUserList(updateUser);
     }
 
    useEffect(() => {

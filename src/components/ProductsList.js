@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const ButtonAddToBasket = () => 
@@ -10,7 +10,7 @@ const ButtonAddToBasket = () =>
         <p>Do koszyka</p>
     </div>;
 
-const ProductsList = ({ user, products }) => {
+const ProductsList = ({ user, userList, setUserList, products }) => {
     const handleBasket = (e) => {
         e.preventDefault();
 
@@ -18,6 +18,14 @@ const ProductsList = ({ user, products }) => {
         const basketCount = user.basket.length;
 
         user.basket[basketCount] = target;
+
+        const updateUser = userList.map(target => {
+            if (target.name === user.name) {
+                return {...target, basket: user.basket};
+            } else return target;
+        });
+
+        setUserList(updateUser);
 
         localStorage.setItem('user', JSON.stringify(user));
     }

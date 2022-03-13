@@ -10,7 +10,10 @@ import Basket from "./Basket";
 import Footer from "./Footer";
 
 function App() {
-    const [userList, setUserList] = useState([]);
+    const [userList, setUserList] = useState(() => {
+        const localData = localStorage.getItem('userList');
+        return localData ? JSON.parse(localData) : [];
+    });
     const [products, setProducts] = useState([
         {
             "name": "Gra",
@@ -59,7 +62,7 @@ function App() {
                 <Route 
                     path="/react-sklep" 
                     element={
-                        <MainPage products={products} user={user}/>
+                        <MainPage products={products} user={user} userList={userList} setUserList={setUserList}/>
                     } 
                 />
 
@@ -91,7 +94,7 @@ function App() {
                 <Route
                     path="/basket"
                     element={
-                        <Basket products={products} user={user} setUser={setUser} />
+                        <Basket products={products} user={user} setUser={setUser} userList={userList} setUserList={setUserList} />
                     }
                 />
             </Routes>
