@@ -51,7 +51,7 @@ function Account({ user, setUser, userList, setUserList }) {
             <h3>Monety</h3>
             <form className="ui input" onSubmit={changeCredits}>
                 <input type="number" placeholder='0' onChange={e => (setValue({credits: (e.target.value)}))} value={value.credits} />
-                <button className="ui button">Zapisz ilość</button>
+                <button className="ui button marginLeft">Zapisz ilość</button>
             </form>
 
             <div className="ui divider"></div>

@@ -15,6 +15,10 @@
     margin-top: 15px;
 }
 
+.button.marginLeft {
+    margin-left: 10px;
+}
+
 footer.ui.footer {
     position: absolute;
     bottom: -3px;
