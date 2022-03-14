@@ -7,6 +7,17 @@
     position: relative;
 }
 
+
+@media(max-width: 599px) {
+    #root .ui.menu.container .item:first-child{
+        height: 100%;
+    }
+
+    #root .ui.menu.container .item:first-child h1 {
+        font-size: 18px;
+    }
+}
+
 #root > .ui.container {
     padding-bottom: 50px;
 }
@@ -19,9 +30,21 @@
     margin-left: 10px;
 }
 
+.ui.card .huge.icon {
+    margin-block: 15px;
+}
+
+.ui.container.items .item div.content {
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    margin-left: 20px;
+}
+
 footer.ui.footer {
     position: absolute;
-    bottom: -3px;
+    bottom: 0;
+    box-shadow: none;
     border-inline: none;
     border-bottom: none;
     width: 100%;
